@@ -48,11 +48,23 @@ if ( ! class_exists( 'ApePI' ) ) {
             add_menu_page(
                 'ApePI Options',
                 'ApePI',
-                'administrator',
+                'manage_options',
                 'apepi_admin',
-                null,
-                'dashicons-images-alt2'
-            );            
+                array( $this, 'apepi_settings_page' ),
+                'dashicons-database-view'
+            );
+        }
+
+        public function apepi_settings_page(){
+            require( APEPI_PATH . 'views/settings-page.php' );
         }
     }
+}
+
+if ( class_exists( 'ApePI' ) ) {
+    register_activation_hook( __FILE__, array( 'ApePI', 'activate' ) );
+    register_deactivation_hook( __FILE__, array( 'ApePI', 'deactivate' ) );
+    register_uninstall_hook( __FILE__, array( 'ApePI', 'uninstall' ) );
+
+    $mv_slider = new ApePI();
 }
