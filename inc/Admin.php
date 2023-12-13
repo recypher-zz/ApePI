@@ -1,16 +1,11 @@
 <?php
 namespace ApePI\Core;
 
-require(APEPI_PATH . 'inc/partials/Settings.php');
-require(APEPI_PATH . 'autoloader.php');
-
 class Admin {
 
     public function __construct() {
         $this->settings = new Settings();
-        $this->autoloader = new Autoloader();
         add_action('admin_menu', array( $this, 'add_menu' ) );
-        $this->apepi_settings_page();
     }
     
     public function add_menu(){

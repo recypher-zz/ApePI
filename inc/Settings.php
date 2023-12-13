@@ -9,5 +9,3 @@ if( ! class_exists( 'ApePI_Settings' ) ){
         }
     }
 }
-
-?>
