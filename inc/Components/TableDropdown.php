@@ -9,6 +9,7 @@ class TableDropdown {
         $tables = $wpdb->get_results( $query, ARRAY_N );
 
         if ($tables) {
+            echo '<div class="endpoint_selector">';
             echo '<select class="table" name="selected_table">';
             echo '<option value="#"> Select A Table... </option>';
 
@@ -23,6 +24,13 @@ class TableDropdown {
         }
 
         echo '<div id="returned_columns">';
+        echo '</div>';
+
+        echo '<div>';
+        echo '<pre class="returned_data"';
+        echo '</pre>';
+        echo '</div>';
+
         echo '</div>';
     }
     }
