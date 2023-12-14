@@ -21,6 +21,9 @@ class TableDropdown {
         } else {
             echo '<p>No tables found in the database.</p>';
         }
+
+        echo '<div id="returned_columns">';
+        echo '</div>';
     }
     }
 

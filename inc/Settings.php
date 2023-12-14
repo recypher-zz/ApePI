@@ -14,9 +14,9 @@ if( ! class_exists( 'Settings' ) ){
             $this->table_dropdown = new TableDropdown();
         }
 
-        public function create_column_dropdown($table) {
-            // $this->column_dropdown = new ColumnDropdown();
-            return "Hit";
+        public function create_column_dropdown() {
+            $column_dropdown = new ColumnDropdown($_POST["table"]);
+            wp_send_json($column_dropdown);
         }
     }
 }
