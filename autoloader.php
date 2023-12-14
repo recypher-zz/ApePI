@@ -27,13 +27,8 @@ class Autoloader {
     /**
      * @var string Base directory for the namespace prefix.
      */
+    
     const BASE_DIR = APEPI_PATH . 'inc/';
-
-	// public function __construct(){
-	// 	echo "BASE_DIR: " . self::BASE_DIR . "<br>";
-	// 	echo "PREFIX: " . self::PREFIX . "<br>";
-
-	// }
 
     /**
      * Register loader.
