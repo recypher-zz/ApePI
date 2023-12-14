@@ -30,6 +30,12 @@ if ( ! class_exists( 'ApePI' ) ) {
             $this->autoloader = new Autoloader();
             $this->autoloader->register();
 
+            wp_register_style( 'BootstrapCSS', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
+            wp_enqueue_style( 'BootstrapCSS' );
+
+            wp_register_script( 'BootstrapJS', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' );
+            wp_enqueue_script( 'BootstrapJS' );
+
             register_activation_hook( __FILE__, array( $this, 'activate' ) );
             register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
             register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
