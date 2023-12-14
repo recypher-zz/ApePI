@@ -37,6 +37,7 @@ if ( ! class_exists( 'ApePI' ) ) {
             wp_enqueue_script( 'BootstrapJS' );
 
             register_activation_hook( __FILE__, array( $this, 'activate' ) );
+            register_activation_hook( __FILE__, array( $this, 'create_custom_routes_table' ) );
             register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
             register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
             $this->admin = new Admin();
@@ -48,6 +49,23 @@ if ( ! class_exists( 'ApePI' ) ) {
             flush_rewrite_rules();
         }
         public static function uninstall(){
+        }
+
+        public function create_custom_routes_table() {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'custom_routes';
+            $charset_collate = $wpdb->get_charset_collate();
+
+            $sql = "CREATE TABLE $table_name (
+                id mediumint(9) NOT NULL AUTO_INCREMENT,
+                route_name varchar(100) NOT NULL,
+                route_method varchar(255) NOT NULL,
+                route_callback varchar(255) NOT NULL,
+                PRIMARY KEY  (id)
+            ) $charset_collate;";
+
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
         }
     }
 }
