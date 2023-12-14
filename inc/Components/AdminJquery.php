@@ -19,6 +19,20 @@ class AdminJquery {
                         $("#returned_columns").html(response);
                     })
                 })
+
+                $('.endpoint_selector').on("change", '.column', function() {
+                    var data = {
+                        "table" : $('.table').val(),
+                        "column" : $(this).val(),
+                        "action" : 'returnData'
+                    }
+
+                    $.post(ajaxurl, data, function(response) {
+                        console.log(data);
+                        console.log(response);
+                        $(".returned_data").html(response);
+                    })
+                })
             })
         </script> <?php
     }
