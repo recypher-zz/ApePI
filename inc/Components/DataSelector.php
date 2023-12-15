@@ -1,4 +1,6 @@
 <?php
+namespace ApePI\Core\Components;
+
 class DataSelector{
     public function __construct() {
         add_action( 'wp_ajax_columns', array( $this, 'create_column_dropdown' ) );
@@ -12,9 +14,12 @@ class DataSelector{
         $tables = $wpdb->get_results( $query, ARRAY_N );
 
         if ( $tables ) {
-            echo '<select class="table" name="selected_table">';
-            echo '<option value="#"> Select A Table... </option>';
 
+            ?>
+            <select class="table" name="selected_table">
+            <option value="#"> Select A Table... </option>
+
+            <?php
             foreach ( $tables as $table ) {
                 $table_name = $table[0];
                 echo '<option value="' . esc_attr($table_name) . '">' . esc_html($table_name) . '</option>';
@@ -34,14 +39,14 @@ class DataSelector{
         $columns = $wpdb->get_results( $query, ARRAY_N );
 
         if ($columns) {
-            echo '<select class="column" name="selected_column">';
-            echo '<option value="#"> Select A Column... </option>';
-
+            ?>
+            <select name="selected_column" id="" class="column">
+            <option value="#"> Select A Column... </option>
+            <?php
             foreach ( $columns as $column ) {
                 $column_name = $column[0];
                 echo '<option value="' . esc_attr($column_name) . '">' . esc_html($column_name) . '</option>';
             }
-
             echo '</select>';
         } else {
             echo '<p>No columns found for this table.</p>';
