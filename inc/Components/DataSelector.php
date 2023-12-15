@@ -4,7 +4,7 @@ namespace ApePI\Core\Components;
 class DataSelector{
     public function __construct() {
         add_action( 'wp_ajax_columns', array( $this, 'create_column_dropdown' ) );
-        add_action( 'wp_ajax_return_data', array( $this, 'show_return_data' ) );
+        add_action( 'wp_ajax_return_data', array( $this, 'return_data' ) );
     }
 
     public function create_table_dropdown() {
