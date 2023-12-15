@@ -73,20 +73,8 @@ class DataSelector{
     }
 
     public function render(){
-        ?>
-        <div class="endpoint_selector">
-            <?php $this->create_table_dropdown();?>
-            <div id="returned_columns">
-
-            </div>
-
-            <div>
-                <pre class="returned_data">
-
-                </pre>
-            </div>
-        </div>
-        <?php
+        require_once(APEPI_PATH . 'views/api_creation.php');
+        api_creation_screen($this->create_table_dropdown());
     }
 }
 ?>
