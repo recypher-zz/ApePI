@@ -61,5 +61,22 @@ class DataSelector{
             echo '<p>No data was found in this table for those columns.</p>';
         }
     }
+
+    public function render(){
+        ?>
+        <div class="endpoint_slector">
+            <?php $this->create_table_dropdown();?>
+            <div id="returned_columns">
+
+            </div>
+
+            <div>
+                <pre class="returned_data">
+
+                </pre>
+            </div>
+        </div>
+        <?php
+    }
 }
 ?>
