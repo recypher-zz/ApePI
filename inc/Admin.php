@@ -1,11 +1,12 @@
 <?php
 namespace ApePI\Core;
 use ApePI\Core\Components\AdminJquery;
+use ApePI\Core\Components\DataSelector;
 
 class Admin {
 
     public function __construct() {
-        $this->settings = new Settings();
+        $this->dataselector = new DataSelector();
         $this->admin_jquery = new AdminJquery();
 
         add_action('admin_menu', array( $this, 'add_menu' ) );
@@ -24,7 +25,7 @@ class Admin {
     }
 
     public function apepi_settings_page(){
-        $this->settings->create_table_dropdown();
+        $this->dataselector->render();
     }
 
     public function admin_jquery() {
