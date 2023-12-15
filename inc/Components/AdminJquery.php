@@ -24,7 +24,7 @@ class AdminJquery {
                     var data = {
                         "table" : $('.table').val(),
                         "column" : $(this).val(),
-                        "action" : 'returnData'
+                        "action" : 'return_data'
                     }
 
                     $.post(ajaxurl, data, function(response) {
