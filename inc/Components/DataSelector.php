@@ -31,8 +31,10 @@ class DataSelector{
         }
     }
 
-    public function create_column_dropdown( $table ) {
+    public function create_column_dropdown() {
         global $wpdb;
+
+        $table = $_POST['table'];
         
         $query = "SHOW COLUMNS FROM " . $table;
 
@@ -53,8 +55,11 @@ class DataSelector{
         }
     }
 
-    public function return_data( $table, $column ){
+    public function return_data(){
         global $wpdb;
+
+        $table = $_POST['table'];
+        $column = $_POST['column'];
 
         $query = "SELECT " . $column . " FROM " . $table;
 
@@ -69,7 +74,7 @@ class DataSelector{
 
     public function render(){
         ?>
-        <div class="endpoint_slector">
+        <div class="endpoint_selector">
             <?php $this->create_table_dropdown();?>
             <div id="returned_columns">
 
