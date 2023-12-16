@@ -17,8 +17,8 @@ class AdminJquery {
                         console.log(data);
                         console.log(response);
                         $("#returned_columns").html(response);
-                    })
-                })
+                    });
+                });
 
                 $('.endpoint_selector').on("change", '.column', function() {
                     var data = {

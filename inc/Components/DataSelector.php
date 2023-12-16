@@ -33,26 +33,24 @@ class DataSelector{
 
     public function create_column_dropdown() {
         global $wpdb;
-
+        $response = '';
         $table = $_POST['table'];
         
         $query = "SHOW COLUMNS FROM " . $table;
 
         $columns = $wpdb->get_results( $query, ARRAY_N );
-
         if ($columns) {
-            ?>
-            <select name="selected_column" id="" class="column">
-            <option value="#"> Select A Column... </option>
-            <?php
+            
+            $response .= '<select name="selected_column" id="" class="column"><option value="#"> Select A Column... </option>';
             foreach ( $columns as $column ) {
                 $column_name = $column[0];
-                echo '<option value="' . esc_attr($column_name) . '">' . esc_html($column_name) . '</option>';
+                $response .= '<option value="' . esc_attr($column_name) . '">' . esc_html($column_name) . '</option>';
             }
-            echo '</select>';
+            $response .= '</select>';
         } else {
-            echo '<p>No columns found for this table.</p>';
+            $response .= '<p>No columns found for this table.</p>';
         }
+        wp_send_json($response);
     }
 
     public function return_data(){
