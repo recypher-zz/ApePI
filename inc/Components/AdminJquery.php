@@ -33,6 +33,20 @@ class AdminJquery {
                         $(".returned_data").html(response);
                     })
                 })
+
+                $('.submit_api').on("click", function() {
+                    var data = {
+                        "table" : $('.table').val(),
+                        "column" : $('.column').val(),
+                        "method_type" : $('.method_type').val(),
+                        "action" : 'save_route'
+                    }
+
+                    $.post(ajaxurl, data, function(response) {
+                        console.log(data);
+                        console.log(response);
+                    })
+                })
             })
         </script> <?php
     }
