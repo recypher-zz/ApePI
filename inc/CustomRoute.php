@@ -19,7 +19,7 @@ class CustomRoute{
         }
     }
 
-    public function save_custom_route($route_name, $route_method, $route_callback) {
+    public static function save_custom_route($route_name, $route_method, $route_callback) {
         global $wpdb;
         $table_name = $wpdb->prefix . 'custom_routes';
         $wpdb->insert($table_name, array(
