@@ -27,7 +27,8 @@ class Admin {
     }
 
     public function save_custom_route(){
-        CustomRoute::save_custom_route("Test", $_POST['method_type'], "test()");
+        CustomRoute::save_custom_route("Test",$_POST['table'], $_POST['columns'], $_POST['method_type'], "test()");
+        CustomRoute::register_custom_routes();
     }
 
     public function apepi_settings_page(){

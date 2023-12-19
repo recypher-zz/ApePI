@@ -20,24 +20,10 @@ class AdminJquery {
                     });
                 });
 
-                $('.endpoint_selector').on("change", '.column', function() {
-                    var data = {
-                        "table" : $('.table').val(),
-                        "column" : $(this).val(),
-                        "action" : 'return_data'
-                    }
-
-                    $.post(ajaxurl, data, function(response) {
-                        console.log(data);
-                        console.log(response);
-                        $(".returned_data").html(response);
-                    })
-                })
-
                 $('.submit_api').on("click", function() {
                     var data = {
                         "table" : $('.table').val(),
-                        "column" : $('.column').val(),
+                        "columns" : $('.column').val(),
                         "method_type" : $('.method_type').val(),
                         "action" : 'save_route'
                     }

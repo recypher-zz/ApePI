@@ -59,6 +59,8 @@ if ( ! class_exists( 'ApePI' ) ) {
             $sql = "CREATE TABLE $table_name (
                 id mediumint(9) NOT NULL AUTO_INCREMENT,
                 route_name varchar(100) NOT NULL,
+                route_table varchar(255) NOT NULL,
+                route_columns LONGTEXT NOT NULL,
                 route_method varchar(255) NOT NULL,
                 route_callback varchar(255) NOT NULL,
                 PRIMARY KEY  (id)

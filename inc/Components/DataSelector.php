@@ -41,7 +41,7 @@ class DataSelector{
         $columns = $wpdb->get_results( $query, ARRAY_N );
         if ($columns) {
             
-            $response .= '<select name="selected_column" id="" class="column"><option value="#"> Select A Column... </option>';
+            $response .= '<select name="selected_column" id="" class="column" multiple><option value="#"> Select A Column... </option>';
             foreach ( $columns as $column ) {
                 $column_name = $column[0];
                 $response .= '<option value="' . esc_attr($column_name) . '">' . esc_html($column_name) . '</option>';
