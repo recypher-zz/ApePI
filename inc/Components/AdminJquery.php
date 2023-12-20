@@ -22,6 +22,7 @@ class AdminJquery {
 
                 $('.submit_api').on("click", function() {
                     var data = {
+                        "name" : $('.api_name').val(),
                         "table" : $('.table').val(),
                         "columns" : $('.column').val(),
                         "method_type" : $('.method_type').val(),
