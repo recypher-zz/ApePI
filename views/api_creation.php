@@ -2,6 +2,10 @@
 
 function api_creation_screen($data){
     ?>
+    <div>
+        <label for="route_name">Endpoint Name:</label>
+        <input class="api_name" name="route_name" type="text"> 
+    </div>
     <div class="endpoint_selector">
         <?php $data; ?>
         <div id="returned_columns">
