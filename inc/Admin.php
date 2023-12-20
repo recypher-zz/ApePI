@@ -11,14 +11,14 @@ class Admin {
         $this->admin_jquery = new AdminJquery();
         $this->custom_route = new CustomRoute();
 
-        add_action('admin_menu', array( $this, 'add_menu' ) );
+        add_action('admin_menu', array( $this, 'add_creation_menu' ) );
         add_action( 'admin_footer', array( $this, 'admin_jquery' ) );
         add_action( 'wp_ajax_save_route', array( $this, 'save_custom_route' ) );
     }
     
-    public function add_menu(){
+    public function add_creation_menu(){
         add_menu_page(
-            'ApePI Options',
+            'ApePI Endpoint Creation',
             'ApePI',
             'manage_options',
             'apepi_admin',
@@ -38,5 +38,9 @@ class Admin {
 
     public function admin_jquery() {
         $this->admin_jquery->admin_jquery();
+    }
+
+    public function list_endpoints() {
+
     }
 }
