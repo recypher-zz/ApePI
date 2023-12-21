@@ -17,7 +17,7 @@ namespace ApePI\Core;
 
 define( 'APEPI_PATH', plugin_dir_path( __FILE__ ) );
 define( 'APEPI_URL', plugin_dir_url( __FILE__ ) );
-define( 'APEPI_VERSION', '0.1.0' ); 
+define( 'APEPI_VERSION', '0.2.1' ); 
 
 
 if ( ! defined( 'WPINC' ) )  die;
