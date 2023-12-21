@@ -3,6 +3,7 @@ namespace ApePI\Core;
 use ApePI\Core\Components\AdminJquery;
 use ApePI\Core\Components\DataSelector;
 use ApePI\Core\CustomRoute;
+use ApePI\Core\Components\ListRoutes;
 
 class Admin {
 
@@ -41,6 +42,6 @@ class Admin {
     }
 
     public function list_endpoints() {
-
+        ListRoutes::list_routes();
     }
 }
