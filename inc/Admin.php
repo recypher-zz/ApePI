@@ -26,6 +26,16 @@ class Admin {
             array( $this, 'apepi_settings_page' ),
             'dashicons-database-view'
         );
+
+        // Added submenu page using the slug from the above menu as the parent
+        add_submenu_page(
+            'apepi_admin',   		             // parent slug
+            'ApePI Endpoint Viewer',             // page_title
+            'Endpoints',                         // menu_title
+            'manage_options',                    // capability
+            'apepi_admin_view_endpoints',        // menu_slug
+            array( $this, 'list_endpoints' ),    // callback
+        );
     }
 
     public function save_custom_route(){
