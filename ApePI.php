@@ -3,7 +3,7 @@
  * Plugin Name: ApePI
  * Plugin URI: https://www.wordpress.org/ApePI
  * Description: Create JSON endpoints for data in WordPress
- * Version: 0.1.0
+ * Version: 0.2.1
  * Author: Ken Niemerg (Cypher)
  * Author URI: None
  * License: GPL v2 or later
