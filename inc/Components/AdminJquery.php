@@ -17,20 +17,21 @@ class AdminJquery {
                         console.log(data);
                         console.log(response);
                         $("#returned_columns").html(response);
-                    })
-                })
+                    });
+                });
 
-                $('.endpoint_selector').on("change", '.column', function() {
+                $('.submit_api').on("click", function() {
                     var data = {
+                        "name" : $('.api_name').val(),
                         "table" : $('.table').val(),
-                        "column" : $(this).val(),
-                        "action" : 'returnData'
+                        "columns" : $('.column').val(),
+                        "method_type" : $('.method_type').val(),
+                        "action" : 'save_route'
                     }
 
                     $.post(ajaxurl, data, function(response) {
                         console.log(data);
                         console.log(response);
-                        $(".returned_data").html(response);
                     })
                 })
             })
