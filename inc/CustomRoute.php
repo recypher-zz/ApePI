@@ -3,6 +3,7 @@ namespace ApePI\Core;
 use ApePI\Core\Components\PostRoute;
 use ApePI\Core\Components\GetRoute;
 use ApePI\Core\Components\PatchRoute;
+use ApePI\Core\Components\DeleteRoute;
 
 class CustomRoute{
 
@@ -35,7 +36,7 @@ class CustomRoute{
                             PatchRoute::patch_route($data, $table_name);
                             break;
                         case "DELETE":
-                            return "$method not supported yet";
+                            DeleteRoute::delete_route($data, $table_name);
                             break;
 
                     }
