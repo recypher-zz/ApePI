@@ -1,9 +1,10 @@
 <?php
 namespace ApePI\Core;
+
 use ApePI\Core\Components\AdminJquery;
 use ApePI\Core\Components\DataSelector;
-use ApePI\Core\CustomRoute;
 use ApePI\Core\Components\ListRoutes;
+use ApePI\Core\CustomRoute;
 
 class Admin {
 
@@ -39,8 +40,18 @@ class Admin {
     }
 
     public function save_custom_route(){
-        $this->custom_route->save_custom_route($_POST['name'],$_POST['table'], $_POST['columns'], $_POST['method_type'], "test()");
-        $this->custom_route->register_custom_routes();
+        global $wpdb;
+        $table_name = APEPI_TABLE;
+
+        $query = $wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE route_name = %s", $_POST['name']);
+        $count = $wpdb->get_var($query);
+
+        if ($count == 0){
+            $this->custom_route->save_custom_route($_POST['name'],$_POST['table'], $_POST['columns'], $_POST['method_type'], "test()");
+            $this->custom_route->register_custom_routes();
+        } else {
+            return wp_send_json("Can't do that right now");
+        }
     }
 
     public function apepi_settings_page(){
@@ -52,6 +63,9 @@ class Admin {
     }
 
     public function list_endpoints() {
-        ListRoutes::list_routes();
+        $site_url = get_option('siteurl');
+        require_once(APEPI_PATH . 'views/api_endpoint_list.php');
+
+        api_endpoint_list( ListRoutes::list_routes(), $site_url );
     }
 }
