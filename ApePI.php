@@ -17,6 +17,7 @@ namespace ApePI\Core;
 
 define( 'APEPI_PATH', plugin_dir_path( __FILE__ ) );
 define( 'APEPI_URL', plugin_dir_url( __FILE__ ) );
+define( 'APEPI_TABLE', $wpdb->prefix . 'custom_routes');
 define( 'APEPI_VERSION', '0.2.1' ); 
 
 
@@ -53,7 +54,7 @@ if ( ! class_exists( 'ApePI' ) ) {
 
         public function create_custom_routes_table() {
             global $wpdb;
-            $table_name = $wpdb->prefix . 'custom_routes';
+            $table_name = APEPI_TABLE;
             $charset_collate = $wpdb->get_charset_collate();
 
             $sql = "CREATE TABLE $table_name (
